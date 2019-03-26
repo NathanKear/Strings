@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
+import React from 'react';
+import PropTypes from 'prop-types';
+import MonospacedPreformattedText from './MonospacedPreformattedText';
 
-class TabVisualiser extends Component {
+const TabVisualiser = ({ tab, progress }) => {
+    return (
+        <div style={{ position: 'relative', left: '50px' }}>
+            <MonospacedPreformattedText>{tab}</MonospacedPreformattedText>
+        </div>
+    );
+};
 
-    constructor(props) {
-        super(props);
-        this.state = {  };
-    }
+TabVisualiser.propTypes = {
+    tabContent: PropTypes.string,
+    progress: PropTypes.number
+};
 
-    render() { 
-        const { tab, progress, width, height } = this.props;
-        
-        return (
-            <>
-                <Typography fontFamily="Monospace" component="h2" variant="body1" gutterBottom><pre>{tab}</pre></Typography>
-            </>
-        );
-    }
-}
- 
 export default TabVisualiser;
